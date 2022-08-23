@@ -1,0 +1,39 @@
+.propbody {
+    /* position: absolute; */
+    background-color: rgb(232, 254, 255);
+    padding-left: 1%;
+    padding-top: 1%;
+    text-align: left;
+    align-items: left;
+
+    margin: 30px 5% 0px 5%;
+    display: block;
+    align-content: left;
+    border-radius: 7px;
+}
+
+.line{
+    height: 1px;
+    width : 500px;
+    background-color: black;
+    float: left;
+    border: none;
+}
+
+.proptitle {
+    /* margin-top: 20px; */
+    font-weight: 500;
+    font-size: 150%;
+    width: fit-content;
+    /* text-decoration: underline; */
+}
+.propsubtitle{
+    font-weight: 500;
+    font-size: 100%;
+    width: fit-content;
+        
+}
+.propdesc {
+    padding-left: 2%;
+    color: blue;
+}

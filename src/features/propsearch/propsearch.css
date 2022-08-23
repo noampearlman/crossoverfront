@@ -1,0 +1,57 @@
+.psearchwrap{
+    position: absolute;
+    align-items: center;
+    right:10px;
+    /* height: 700px; */
+    /* background-color: blue; */
+    /* width: 400px; */
+    z-index: 1;
+}
+
+.psearchbar{
+    margin-top: 5px;
+    height: 40px;
+    width: 350px;
+    font-size: 30px;
+    /* align-self: center; */
+    display: block;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px black;
+    /* z-index: 1; */
+    
+}
+
+.psearchbar:focus{
+    outline: black 3px ;
+    
+}
+
+.searchop {
+    background-color: white;
+    opacity: 95%;
+    font-size: 30px; 
+    /* width: inherit; */
+    /* max-width: 600px; */
+    /* align-self: inherit; */
+    display: block;
+    color:black;
+    text-decoration: none;
+    /* z-index: 2; */
+}
+.searchop:hover {
+    background-color: rgb(236, 236, 236);
+    font-size: 30px; 
+    /* max-width: 400px; */
+
+    
+}
+.searchop > Link{
+    background-color: white;
+    font-size: 30px; 
+    max-width: 400px;
+    text-decoration: none;
+    color: black;
+}
+
+

@@ -1,0 +1,31 @@
+.loginbody {
+    float: right;
+    background-color: transparent;
+    min-width: fit-content;
+    padding:5px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.logininput {
+    width: 100px;
+    
+}
+
+.loginbutton {
+    background-color: transparent;
+    /* height: 40px;
+    width: 100px; */
+    margin-left: 2px;
+    /* margin-top: 2px; */
+    border-radius: 5px;
+    border: 0;
+    color:white;
+    font-size: large; 
+}  
+
+
+.loginbutton:hover  {
+    background-color: rgb(38, 139, 190);
+    color:white
+}
