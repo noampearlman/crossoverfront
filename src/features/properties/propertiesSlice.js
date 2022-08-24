@@ -1,26 +1,37 @@
 import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
-import { getCons } from './conlistAPI';
+import { addProp, getProps } from './propertiesAPI';
 // import jwt_decode from "jwt-decode";
 
 const initialState = {
-    cons:[]
+    props:[]
 };
 
 
 
-export const getConsAsync = createAsyncThunk(
-    'conlist/getCons',
+export const getPropsAsync = createAsyncThunk(
+    'properties/getProps',
     async () => {
         // console.log(cred)
     
-      const response = await getCons();
+      const response = await getProps();
       // The value we return becomes the `fulfilled` action payload
     //   console.log(response.data)
       return response.data;
     }
   );
-  export const conlistSlice = createSlice({
-    name: 'conlist',
+  export const addPropAsync = createAsyncThunk(
+    'propsearch/getProps',
+    async (data) => {
+        // console.log(cred)
+    
+      const response = await addProp(data);
+      // The value we return becomes the `fulfilled` action payload
+    //   console.log(response.data)
+      return response.data;
+    }
+  );
+  export const propertiesSlice = createSlice({
+    name: 'properties',
     initialState,
     reducers: {
         // logout: (state) => {
@@ -34,10 +45,10 @@ export const getConsAsync = createAsyncThunk(
     //   happens when async done - callback
     extraReducers: (builder) => {
         builder
-            .addCase(getConsAsync.fulfilled, (state, action) => {
+            .addCase(getPropsAsync.fulfilled, (state, action) => {
                 // console.log(action.payload)
                 if (action.payload) {
-                    state.cons = action.payload
+                    state.props = action.payload
                     // state.logged = true;
                     // console.log(jwt_decode(action.payload.data.access).username)
                     // state.username = jwt_decode(action.payload.data.access).username
@@ -56,6 +67,6 @@ export const getConsAsync = createAsyncThunk(
 // export const selectLogged = (state) => state.login.logged;
 // export const selectUsername = (state) => state.login.username;
 // export const selectPassword = (state) => state.login.password;
-export const selectCons = (state) => state.conlist.cons;
+export const selectProps = (state) => state.properties.props;
 
-export default conlistSlice.reducer;
+export default propertiesSlice.reducer;

@@ -1,26 +1,26 @@
 import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
-import { getProps } from './propsearchAPI';
+import { getCons } from './consAPI';
 // import jwt_decode from "jwt-decode";
 
 const initialState = {
-    props:[]
+    cons:[]
 };
 
 
 
-export const getPropsAsync = createAsyncThunk(
-    'propsearch/getProps',
+export const getConsAsync = createAsyncThunk(
+    'cons/getCons',
     async () => {
         // console.log(cred)
     
-      const response = await getProps();
+      const response = await getCons();
       // The value we return becomes the `fulfilled` action payload
     //   console.log(response.data)
       return response.data;
     }
   );
-  export const propsearchSlice = createSlice({
-    name: 'propsearch',
+  export const consSlice = createSlice({
+    name: 'cons',
     initialState,
     reducers: {
         // logout: (state) => {
@@ -34,10 +34,10 @@ export const getPropsAsync = createAsyncThunk(
     //   happens when async done - callback
     extraReducers: (builder) => {
         builder
-            .addCase(getPropsAsync.fulfilled, (state, action) => {
+            .addCase(getConsAsync.fulfilled, (state, action) => {
                 // console.log(action.payload)
                 if (action.payload) {
-                    state.props = action.payload
+                    state.cons = action.payload
                     // state.logged = true;
                     // console.log(jwt_decode(action.payload.data.access).username)
                     // state.username = jwt_decode(action.payload.data.access).username
@@ -56,6 +56,6 @@ export const getPropsAsync = createAsyncThunk(
 // export const selectLogged = (state) => state.login.logged;
 // export const selectUsername = (state) => state.login.username;
 // export const selectPassword = (state) => state.login.password;
-export const selectProps = (state) => state.propsearch.props;
+export const selectCons = (state) => state.cons.cons;
 
-export default propsearchSlice.reducer;
+export default consSlice.reducer;

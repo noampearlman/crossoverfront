@@ -46,6 +46,7 @@ export const signInAsync = createAsyncThunk(
             .addCase(signInAsync.fulfilled, (state, action) => {
                 // console.log(action.payload.data.access)
                 if (action.payload.data.access) {
+                    {console.log(action)}
                     state.token = action.payload.data.access
                     state.logged = true;
                     // console.log(jwt_decode(action.payload.data.access).username)

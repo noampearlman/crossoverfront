@@ -10,14 +10,12 @@ const Propspage = () => {
     const is_superuser = useSelector(selectis_superuser)
     return (
         <div className='propspagebody'>
-            {true ?
+            {is_superuser ?
                 <div>
                     
                     <Propadd></Propadd>
                 </div> :
-                <div>
-                    regular user
-                </div>
+                null
             }
 
             <Propsearch />

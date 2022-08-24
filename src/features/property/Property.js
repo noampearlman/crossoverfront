@@ -3,13 +3,17 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Conlist from '../conlist/Conlist'
 import Propsearch from '../propsearch/Propsearch'
-import { selectProps } from '../propsearch/propsearchSlice'
+import { selectProps } from '../properties/propertiesSlice'
 import './Property.css'
+import { selectCons } from '../cons/consSlice'
 const Property = () => {
 
   const params = useParams()
   const propId = Number(params.propId)
   const props = useSelector(selectProps)
+  const cons = useSelector(selectCons)
+  const relcons = cons.filter((con)=>con.firstProperty === propId || con.secondProperty === propId)
+//   console.log(relcons)
   return (
     <div className='propbody'>
       {props.filter((prop) => prop.id == propId).map((prop, i) =>
@@ -22,8 +26,9 @@ const Property = () => {
             <div className='propsubtitle'>Description</div>
             <div className='propdesc'>{prop.page_Content}</div>
             <hr className='line'/>
-            <div className='propsubtitle'>connections</div>
-            <Conlist></Conlist>
+            <div className='propsubtitle'>Connections</div>
+            {propId}
+            <Conlist cons={relcons}></Conlist>
           </div>
         </div>)}
 

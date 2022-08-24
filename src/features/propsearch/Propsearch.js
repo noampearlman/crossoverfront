@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getPropsAsync, selectProps } from './propsearchSlice'
+import { getPropsAsync, selectProps } from '../properties/propertiesSlice'
 import { Link,Outlet } from "react-router-dom";
 import './propsearch.css'
 const Propsearch = () => {
@@ -20,7 +20,7 @@ const Propsearch = () => {
     <div>
 
       <div className='psearchwrap' tabIndex={0} onClick={(e)=>setSearch(e.target.value)}  onBlur={() => waitClear()}>
-        <input id="search" className='psearchbar' placeholder='search' onChange={(e) => setSearch(e.target.value.toLowerCase())}>
+        <input id="search" autoComplete="off" className='psearchbar' placeholder='search' onChange={(e) => setSearch(e.target.value.toLowerCase())}>
         </input>
         {search ?
           <div>{properties.filter((prop) => prop.name.toLowerCase().includes(search)).map((prop, i) =>

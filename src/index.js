@@ -4,14 +4,15 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 import './index.css';
-import {getPropsAsync} from './features/propsearch/propsearchSlice'
+
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 import Connector from './features/connector/Connector';
 import Propsearch from './features/propsearch/Propsearch';
 import Property from './features/property/Property';
 import Propspage from './features/propspage/Propspage';
-import { getConsAsync } from './features/conlist/conlistSlice';
+import {getPropsAsync} from './features/properties/propertiesSlice'
+import { getConsAsync } from './features/cons/consSlice';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);

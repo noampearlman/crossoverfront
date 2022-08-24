@@ -1,16 +1,23 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectCons } from './conlistSlice'
+import { selectProps } from '../properties/propertiesSlice'
+import './Conlist.css'
 
-const Conlist = () => {
-    const cons = useSelector(selectCons)
+const Conlist = (props) => {
+    const cons = props.cons
+    const properties = useSelector(selectProps)
+
   return (
     <div>
         {cons.length ? 
-        <div>
-            {cons[0].desc}
+        <div className='conlistwrapper'>
+            {cons.map((con,i)=>
+            <div key={i}>
+                {con.firstProperty} | {con.secondProperty} | {con.desc} 
 
 
+            </div>)}
+            
         </div>
         :null}
     </div>
