@@ -1,33 +1,52 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Conlist from '../conlist/Conlist'
 import Propsearch from '../propsearch/Propsearch'
-import { selectProps } from '../properties/propertiesSlice'
+import { delPropAsync, selectProps } from '../properties/propertiesSlice'
 import './Property.css'
 import { selectCons } from '../cons/consSlice'
+import { selectis_superuser, selectToken } from '../login/loginSlice'
 const Property = () => {
-
+  const dispatch = useDispatch()
   const params = useParams()
   const propId = Number(params.propId)
   const props = useSelector(selectProps)
+
+  const token = useSelector(selectToken)
+  const is_superuser = useSelector(selectis_superuser)
+
   const cons = useSelector(selectCons)
-  const relcons = cons.filter((con)=>con.firstProperty === propId || con.secondProperty === propId)
-//   console.log(relcons)
+  const relcons = cons.filter((con) => con.firstProperty === propId || con.secondProperty === propId)
+  //   console.log(relcons)
   return (
     <div className='propbody'>
-      {props.filter((prop) => prop.id == propId).map((prop, i) =>
+      <div>
+
+        {is_superuser ? <div>
+
+          <button onClick={() => dispatch(delPropAsync([propId, token]))} href="/prop">
+            <a href="/prop">
+              Delete
+            </a>
+          </button>
+        </div>
+
+
+          : null
+        }
+      </div>
+      {props.filter((prop) => prop.id === propId).map((prop, i) =>
         <div key={i}>
           <div className='proptitle'>
             {prop.name}
           </div>
-          <hr className='line'/>
+          <hr className='line' />
           <div >
             <div className='propsubtitle'>Description</div>
             <div className='propdesc'>{prop.page_Content}</div>
-            <hr className='line'/>
+            <hr className='line' />
             <div className='propsubtitle'>Connections</div>
-            {propId}
             <Conlist cons={relcons}></Conlist>
           </div>
         </div>)}

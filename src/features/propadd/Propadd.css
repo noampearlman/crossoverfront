@@ -18,10 +18,17 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: fit-content;
     border-radius: 5px;
     z-index: 2;
-    height: 50%;
+    height: fit-content;
+  }
+
+  .propcontent{
+    height: 300px;
+    width: 400px;
+    font-size: medium;
+    resize: none;
   }
 
   

@@ -8,6 +8,8 @@ import './Propspage.css'
 const Propspage = () => {
     const token = useSelector(selectToken)
     const is_superuser = useSelector(selectis_superuser)
+
+    
     return (
         <div className='propspagebody'>
             {is_superuser ?

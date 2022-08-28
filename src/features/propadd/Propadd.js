@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectToken } from '../login/loginSlice';
 import './Propadd.css'
 import { addPropAsync } from '../properties/propertiesSlice'
+
+import jwt_decode from "jwt-decode";
+
 const Propadd = () => {
 
   // const [first, setfirst] = useState(second)
-
-
 
   const showModal = () => {
     document.getElementById("propmodal").style.display = "block";
@@ -18,6 +19,8 @@ const Propadd = () => {
     document.getElementById("propcontent").value = ""
     setName("")
     setContent("")
+    // console.log((jwt_decode(token).exp)*1000 )
+    // console.log((new Date().getTime() + 1) )
   }
   const submit = () => {
     dispatch( addPropAsync([{"name":name,"page_Content":content},token]))
@@ -43,14 +46,12 @@ const Propadd = () => {
       <div  className='propmodal' id="propmodal">
         <div className='propmodalcontent'>
             <label>name:</label>
-            {name}
             <br></br>
             <input id='propname' onChange={(e)=>setName(e.target.value)}></input>
             <br></br>
             <label>page content:</label>
-            {content}
             <br></br>
-            <input  id='propcontent' onChange={(e)=>setContent(e.target.value)}></input>
+            <textarea  id='propcontent' className='propcontent' onChange={(e)=>setContent(e.target.value)}></textarea>
             <br></br>
             
             <button onClick={()=>submit()} >Submit</button>

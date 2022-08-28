@@ -3,6 +3,7 @@ import axios from 'axios'
 const URL = "http://127.0.0.1:8000/"
 const URLGETPROPS = `${URL}props/`
 const URLADDPROP = `${URL}addprop/`
+const URLDELPROP = `${URL}delprop/`
 // async(2)
 export function getProps() {
     
@@ -13,11 +14,27 @@ export function getProps() {
         
         
     );
-}export function addProp(data) {
+}
+export function addProp(data) {
     // const token = useSelector(selectToken)
     return new Promise((resolve) =>
 
         axios.post(URLADDPROP, data[0], {
+            headers: {
+                'Authorization': `Bearer ${data[1]}`
+            }
+        })
+
+            .then((res) => resolve({ data: res.data }))
+
+
+    );
+}
+export function delProp(data) {
+    // const token = useSelector(selectToken)
+    return new Promise((resolve) =>
+
+        axios.delete(`${URLDELPROP}${data[0]}`, {
             headers: {
                 'Authorization': `Bearer ${data[1]}`
             }

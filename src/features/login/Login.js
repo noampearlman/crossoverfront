@@ -3,14 +3,15 @@ import { useDispatch}from 'react-redux'
 // import { useSelector } from 'react-redux'
 // import { login } from '../user/userSlice'
 // import { signin } from './loginAPI'
-import {  signInAsync } from './loginSlice'
+import {  autologin, signInAsync } from './loginSlice'
 import './Login.css'
 const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     // const token =useSelector(selectToken)
     const dispatch = useDispatch()
-    
+    // dispatch(autologin())
+
   return (
     <div className='loginbody'>
         {/* {username} {password} */}

@@ -1,0 +1,26 @@
+.cnctrbody{
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+}
+.cnctrwrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: rgb(87, 227, 82);
+    width: 80%;
+    padding: 1%;
+    border-radius: 7px;
+}
+.cnctroptions{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(192, 26, 92);
+    align-items: center;
+    margin: 1%;
+    padding: 1%;
+}

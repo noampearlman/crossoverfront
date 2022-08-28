@@ -1,9 +1,10 @@
-import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
-import { getCons } from './consAPI';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import { addCon,delCon,getCons } from './consAPI';
 // import jwt_decode from "jwt-decode";
 
 const initialState = {
-    cons:[]
+    cons: []
 };
 
 
@@ -12,14 +13,39 @@ export const getConsAsync = createAsyncThunk(
     'cons/getCons',
     async () => {
         // console.log(cred)
-    
-      const response = await getCons();
-      // The value we return becomes the `fulfilled` action payload
-    //   console.log(response.data)
-      return response.data;
+
+        const response = await getCons();
+        // The value we return becomes the `fulfilled` action payload
+        //   console.log(response.data)
+        return response.data;
     }
-  );
-  export const consSlice = createSlice({
+);
+export const addConAsync = createAsyncThunk(
+    'cons/addCon',
+    async (data) => {
+        // console.log(cred)
+
+        const response = await addCon(data);
+        
+        // The value we return becomes the `fulfilled` action payload
+        //   console.log(response.data)
+        return response.data;
+    }
+);
+export const delConAsync = createAsyncThunk(
+    'cons/delCon',
+    async (data) => {
+        
+        
+        const response = await delCon(data);
+        
+        
+        return response.data;
+    }
+);
+
+
+export const consSlice = createSlice({
     name: 'cons',
     initialState,
     reducers: {
@@ -45,17 +71,23 @@ export const getConsAsync = createAsyncThunk(
                     // console.log( state.email)
                 }
             })
-            // .addCase(signInAsync.rejected, (state, action) => {
-                
-            //     console.log('pending')
-                
-            // })
+            .addCase(addConAsync.fulfilled, (state, action) => {
+                if (action.payload) {
+                    state.cons = action.payload
+                }
+            })
+            .addCase(delConAsync.fulfilled, (state, action) => {
+                if (action.payload) {
+                    state.cons = action.payload
+                }
+            })
+        // .addCase(signInAsync.rejected, (state, action) => {
+
+        //     console.log('pending')
+
+        // })
     },
 });
-// export const {logout} = loginSlice.actions
-// export const selectLogged = (state) => state.login.logged;
-// export const selectUsername = (state) => state.login.username;
-// export const selectPassword = (state) => state.login.password;
 export const selectCons = (state) => state.cons.cons;
 
 export default consSlice.reducer;

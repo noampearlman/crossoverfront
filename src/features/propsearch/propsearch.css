@@ -32,7 +32,6 @@
 .searchop {
     background-color: white;
     opacity: 95%;
-    font-size: 30px; 
     /* width: inherit; */
     /* max-width: 600px; */
     /* align-self: inherit; */
@@ -47,12 +46,6 @@
 
     
 }
-.searchop > Link{
-    background-color: white;
-    font-size: 30px; 
-    max-width: 400px;
-    text-decoration: none;
-    color: black;
-}
+
 
 
