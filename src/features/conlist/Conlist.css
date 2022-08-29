@@ -1,14 +1,24 @@
+.conlistbody{
+    width: 100%;
+}
+
+
 .conlistwrapper{
-    background-color: black;
-    width :100%;
-    padding: 2px;
+    background-color: rgb(38, 36, 36);
+    /* width :1000px; */
+    min-width: 100%;
+    padding: 3px;
     text-align: center;
     align-items: center;
     align-content: center;
+    /* width: 100%; */
+    /* width: ma; */
+    border-radius: 7px;
 }
 
 .conlistrow{
     display: flex;
+    
     
 }
 
@@ -30,7 +40,7 @@
     align-items: center;
     justify-content: center;
 
-    background-color: rgb(106, 20, 20);
+    background-color: rgb(37, 100, 71);
     margin: 1px;
     color: white;
     text-decoration: none;
@@ -66,6 +76,7 @@
     
 }
 .conlink:hover{
-    background-color: rgb(255, 160, 160);
+    background-color: rgb(255, 231, 160);
+    /* background: linear-gradient(120deg, rgb(255, 160, 160) 10%, rgb(255, 203, 203) 26%, rgb(255, 160, 160) 90%); */
     
 }

@@ -20,7 +20,8 @@
   align-items: center;
   /* justify-content: center; */
   font-size: calc(10px + 2vmin);
-  background-color: rgb(224, 240, 189);
+  background: linear-gradient(160deg, rgb(82, 99, 109) 2%, rgb(15, 19, 41) 90%);
+  /* background: linear-gradient(90deg, rgba(70,48,48,1) 2%, rgba(92,18,18,1) 90%); */
 }
 
 .App-link {

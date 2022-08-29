@@ -13,7 +13,15 @@ const Conlist = (props) => {
   const token =useSelector(selectToken)
   const is_superuser = useSelector(selectis_superuser)
   return (
-    <div>
+    <div className='conlistbody'>
+      {cons.length === 0 ?
+        <div>
+          No connection found :/
+        </div>
+        :null
+      }
+
+
       {cons.length ?
         <div className='conlistwrapper'>
           <div className='conlistrow'>

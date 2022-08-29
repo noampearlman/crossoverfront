@@ -22,7 +22,7 @@ const Property = () => {
   return (
     <div className='propbody'>
       <div>
-
+{propId}
         {is_superuser ? <div>
 
           <button onClick={() => dispatch(delPropAsync([propId, token]))} href="/prop">
