@@ -23,38 +23,46 @@ const Propadd = () => {
     // console.log((new Date().getTime() + 1) )
   }
   const submit = () => {
-    dispatch( addPropAsync([{"name":name,"page_Content":content},token]))
-    hideModal()
-    
-  }
 
-  window.onclick = function(event) {
-    if (event.target == document.getElementById("propmodal")) {
-        hideModal()
+    if(document.getElementById("propname").value!==""){
+    dispatch(addPropAsync([{ "name": name, "page_Content": content }, token]))
+    hideModal()
     }
   }
+
+
+
+  window.onclick = function (event) {
+    if (event.target == document.getElementById("propmodal")) {
+      hideModal()
+    }
+  }
+
+
+  
 
   const dispatch = useDispatch()
   const [name, setName] = useState("")
   const [content, setContent] = useState("")
-  const token = useSelector(selectToken)
+    const token = useSelector(selectToken)
   return (
-    <div>
+    <div >
 
       <button onClick={() => showModal()}>Add Prop</button>
 
-      <div  className='propmodal' id="propmodal">
+      <div className='propmodal' id="propmodal">
         <div className='propmodalcontent'>
-            <label>name:</label>
-            <br></br>
-            <input id='propname' onChange={(e)=>setName(e.target.value)}></input>
-            <br></br>
-            <label>page content:</label>
-            <br></br>
-            <textarea  id='propcontent' className='propcontent' onChange={(e)=>setContent(e.target.value)}></textarea>
-            <br></br>
-            
-            <button onClick={()=>submit()} >Submit</button>
+          <button onClick={()=>hideModal()}>x</button>
+          <label>name:</label>
+          <br></br>
+          <input id='propname' onChange={(e) => setName(e.target.value)}></input>
+          <br></br>
+          <label>page content:</label>
+          <br></br>
+          <textarea id='propcontent' className='propcontent' onChange={(e) => setContent(e.target.value)}></textarea>
+          <br></br>
+
+          <button onClick={() => submit()} >Submit</button>
 
         </div>
       </div>

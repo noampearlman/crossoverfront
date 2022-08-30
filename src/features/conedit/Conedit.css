@@ -1,4 +1,8 @@
-.conmodaladd {
+.coneditbody{
+    width: 100%;
+    height: 100%;
+}
+.conmodaledit {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 4; /* Sit on top */
@@ -12,7 +16,7 @@
     background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
   }
   
-.conmodalcontentadd {
+.conmodaleditcontent {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,25 +31,37 @@
     height: fit-content;
     }
   
-.condescadd{
+.condesc{
     margin: 1px;
     height: 20%;
     width: 400px;
     font-size: medium;
     resize: none;
 }
-.conselboxadd{
+.conselbox{
     width: fit-content;
     margin: 1px;
 }
-.conselboxminiadd {
+.conselboxmini {
     width: fit-content;
     /* width: 50%; */
 }
 
-.conselboxminiadd > input{
+.conselboxmini > input{
     width: fit-content;
     /* width: 50%; */
 }
   
+.conedit{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(214, 255, 191);
+}
+
+.conedit:hover{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(176, 255, 130);
+    cursor: pointer;
+}
     

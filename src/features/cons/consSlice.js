@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-import { addCon,delCon,getCons } from './consAPI';
+import { addCon,delCon,getCons, updCon } from './consAPI';
 // import jwt_decode from "jwt-decode";
 
 const initialState = {
@@ -38,6 +37,17 @@ export const delConAsync = createAsyncThunk(
         
         
         const response = await delCon(data);
+        
+        
+        return response.data;
+    }
+);
+export const updConAsync = createAsyncThunk(
+    'cons/updCon',
+    async (data) => {
+        
+        console.log(data)
+        const response = await updCon(data);
         
         
         return response.data;
@@ -81,6 +91,12 @@ export const consSlice = createSlice({
                     state.cons = action.payload
                 }
             })
+            .addCase(updConAsync.fulfilled, (state, action) => {
+                if (action.payload) {
+                    state.cons = action.payload
+                }
+            })
+            
         // .addCase(signInAsync.rejected, (state, action) => {
 
         //     console.log('pending')

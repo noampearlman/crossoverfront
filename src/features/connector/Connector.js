@@ -32,23 +32,14 @@ useEffect(() => {
     var depth = 0
 
     for (var i = 0; i < 10; i++) {
-      // console.log(i)
-      // console.log(!knowns.map(k=>[k[0],k[1]]).filter(known => known.indexOf(second) !== -1).length > 0)
-      // console.log(second)
-      // console.log("hello second")
       if (!knowns.map(k=>[k[0],k[1]]).filter(known => known.indexOf(second) !== -1).length > 0) {
         var thisdata = findCon(knowns, avail, depth)
         knowns = thisdata.knowns
         avail = thisdata.avail
         depth = thisdata.depth + 1
-        // console.log("----")
-        // console.log(avail)
-        // console.log(knowns)
-        // console.log(depth)
       }
       else{
         i=10
-        // console.log("hellooooo")
       }
 
       
@@ -57,21 +48,12 @@ useEffect(() => {
       setRelcons([])
         return
     }
-    // console.log("----")
-    // console.log(avail)
-    // console.log(knowns)
-    // console.log(depth)
 
     var proplist = [second]
 
     for (var i = 0; i < depth; i++) {
 
-      // console.log(proplist)
-      // console.log(knowns)
-      // console.log(knowns.filter(known => known[0] === proplist[0]))
       proplist.unshift(knowns.filter(known => known[0] === proplist[0])[0][1])
-      // console.log(knowns.filter(known => known[0] === proplist[0])[0][1])
-      // console.log(proplist)
     }
 
     var mycons = []
@@ -174,7 +156,7 @@ useEffect(() => {
           </div>
 
         </div>
-        <Conlist   cons={relcons}></Conlist>
+          <Conlist   cons={relcons}></Conlist>
       </div>
     </div>
   )

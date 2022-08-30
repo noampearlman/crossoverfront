@@ -4,6 +4,7 @@ const URL = "http://127.0.0.1:8000/"
 const URLGETCONS =`${URL}cons/`
 const URLADDCON =`${URL}addcon/`
 const URLDELCON =`${URL}delcon/`
+const URLUPDCON =`${URL}updcon/`
 // async(2)
 export function getCons() {
     
@@ -37,6 +38,21 @@ export function delCon(data) {
         axios.delete(`${URLDELCON}${data[0]}`, {
             headers: {
                 'Authorization': `Bearer ${data[1]}`
+            }
+        })
+
+            .then((res) => resolve({ data: res.data }))
+
+
+    );
+}
+export function updCon(data) {
+    // const token = useSelector(selectToken)
+    return new Promise((resolve) =>
+
+        axios.put(`${URLUPDCON}${data[0]}`,data[1], {
+            headers: {
+                'Authorization': `Bearer ${data[2]}`
             }
         })
 

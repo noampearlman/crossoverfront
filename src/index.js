@@ -13,13 +13,18 @@ import Property from './features/property/Property';
 import Propspage from './features/propspage/Propspage';
 import {getPropsAsync} from './features/properties/propertiesSlice'
 import { getConsAsync } from './features/cons/consSlice';
+import { getDirsAsync } from './features/directions/directionsSlice';
+import { getTypesAsync } from './features/contypes/contypesSlice';
+import Propexplain from './explainations/propexplain/Propexplain';
+import Homeexplain from './explainations/homeexplain/Homeexplain';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 store.dispatch(getPropsAsync())
 store.dispatch(getConsAsync())
-
+store.dispatch(getDirsAsync())
+store.dispatch(getTypesAsync())
 root.render(
   // <React.StrictMode>
     <BrowserRouter>
@@ -27,13 +32,16 @@ root.render(
         {/* <App></App> */}
         <Routes>
           <Route path="/" element={<App />}>
+            <Route path="" element={<Homeexplain/>} />
             <Route path="con/" element={<Connector/>} />
             <Route path="prs/" element={<Propsearch/>} />
             <Route path="addcon/" element={"addcon"} />
             <Route path="addprop/" element={"addprop"} />
             <Route path="prop/" element={<Propspage/>} >
+              <Route path="" element={<Propexplain/>} />
               <Route path=":propId" element={<Property />} />
             </Route>
+            
           </Route>
         </Routes>
       </Provider>

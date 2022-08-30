@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addProp, delProp, getProps } from './propertiesAPI';
+import { addProp, delProp, getProps, updProp } from './propertiesAPI';
 // import jwt_decode from "jwt-decode";
 
 const initialState = {
@@ -41,6 +41,17 @@ export const delPropAsync = createAsyncThunk(
     return response.data;
   }
 );
+export const updPropAsync = createAsyncThunk(
+  'properties/updProp',
+  async (data) => {
+
+    console.log(data)
+    const response = await updProp(data);
+
+
+    return response.data;
+  }
+);
 
 export const propertiesSlice = createSlice({
   name: 'properties',
@@ -58,49 +69,37 @@ export const propertiesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getPropsAsync.fulfilled, (state, action) => {
-        // console.log(action.payload)
+        
         if (action.payload) {
           state.props = action.payload
-          // state.logged = true;
-          // console.log(jwt_decode(action.payload.data.access).username)
-          // state.username = jwt_decode(action.payload.data.access).username
-          // console.log(state.token)
-          // console.log( state.email)
+          
         }
       })
       .addCase(addPropAsync.fulfilled, (state, action) => {
-        // console.log(action.payload)
+        
         if (action.payload) {
           state.props = action.payload
-          // state.logged = true;
-          // console.log(jwt_decode(action.payload.data.access).username)
-          // state.username = jwt_decode(action.payload.data.access).username
-          // console.log(state.token)
-          // console.log( state.email)
+          
         }
       })
       .addCase(delPropAsync.fulfilled, (state, action) => {
-        // console.log(action.payload)
+        
         if (action.payload) {
           state.props = action.payload
-          // state.logged = true;
-          // console.log(jwt_decode(action.payload.data.access).username)
-          // state.username = jwt_decode(action.payload.data.access).username
-          // console.log(state.token)
-          // console.log( state.email)
+          
         }
       })
-    // .addCase(signInAsync.rejected, (state, action) => {
-
-    //     console.log('pending')
-
-    // })
+      .addCase(updPropAsync.fulfilled, (state, action) => {
+        
+        if (action.payload) {
+          state.props = action.payload
+          
+        }
+      })
+    
   },
 });
-// export const {logout} = loginSlice.actions
-// export const selectLogged = (state) => state.login.logged;
-// export const selectUsername = (state) => state.login.username;
-// export const selectPassword = (state) => state.login.password;
+
 export const selectProps = (state) => state.properties.props;
 
 export default propertiesSlice.reducer;

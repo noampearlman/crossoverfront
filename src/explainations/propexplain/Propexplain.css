@@ -12,7 +12,7 @@
     border-radius: 7px;
 }
 
-.propline{
+.line{
     height: 1px;
     width : 100%;
     max-width : 500px;
@@ -38,21 +38,3 @@
     padding-left: 2%;
     /* color: blue; */
 }
-
-.propdelbut1{
-    display: block;
-    background-color: rgb(255, 173, 173);
-}
-.propdelbut1:hover{
-    background-color: rgb(255, 121, 121);
-    cursor: pointer;
-}
-.propdelbut2{
-    background-color: rgb(255, 173, 173);
-    display: none;
-}
-.propdelbut2:hover{
-    background-color: rgb(255, 121, 121);
-    cursor: pointer;
-}
-

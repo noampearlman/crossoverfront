@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cons = () => {
   return (
-    <div>consssssss</div>
+    <div>connections</div>
   )
 }
 

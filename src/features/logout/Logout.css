@@ -21,6 +21,6 @@
 
 
 .logoutbutton:hover  {
-    background-color: rgb(38, 139, 190);
+    background: linear-gradient(180deg, rgb(101, 101, 101) 0%, rgb(84, 84, 84) 4%, rgb(65, 65, 65) 90%);
     color:white
 }

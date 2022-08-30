@@ -14,7 +14,7 @@ const Navbar = () => {
           <button className='navbutton'><Link to="/" className='navbuttoncolor'>Home</Link></button>
           
           <button className='navbutton'><Link to="/con" className='navbuttoncolor'>Connector</Link></button>
-          <button className='navbutton'><Link to="/prop" className='navbuttoncolor'>Properties</Link></button>
+          <button className='navbutton'><Link to="/prop" className='navbuttoncolor'>Worlds</Link></button>
         
         </nav>
           <span>{logged ? <Logout/> : <Login/> }</span>
