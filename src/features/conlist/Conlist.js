@@ -45,8 +45,9 @@ const Conlist = (props) => {
                 </Link>
 
               </div>
-              {dirs.length ? <div className='conslot conslotmini'>
+              {dirs.length ? <div className='conslot conslotmini tooltip'>
                 {dirs.filter(dir=>dir.id ===con.direction)[0].name}
+                <span class="tooltiptext">{dirs.filter(dir=>dir.id ===con.direction)[0].desc}</span>
               </div> : null}
               
               <div className='conslot conslotp'>
@@ -58,10 +59,10 @@ const Conlist = (props) => {
                 {con.desc}
               </div>
               {types.length ? 
-              <div className='conslot conslotmini'>
+              <div className='conslot conslotmini tooltip'>
                 {types.filter(type=>type.id === con.type)[0].name}
               
-              
+                <span class="tooltiptext">{types.filter(type=>type.id === con.type)[0].desc}</span>
               </div>: null}
               
 
