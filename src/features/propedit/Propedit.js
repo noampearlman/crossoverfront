@@ -62,13 +62,11 @@ const Propedit = (props) => {
             <div className='propmodaledit' id="propmodaledit">
                 <div className='propmodalcontentedit'>
                     <button onClick={() => hideModal()}>x</button>
-                    <label>name:</label>
+                    <h4>Edit World</h4>
+                    <input placeholder='name' id='propnameedit'></input>
                     <br></br>
-                    <input id='propnameedit'></input>
                     <br></br>
-                    <label>page content:</label>
-                    <br></br>
-                    <textarea id='propcontentedit' className='propcontentedit'></textarea>
+                    <textarea placeholder='page content' id='propcontentedit' className='propcontentedit'></textarea>
                     <br></br>
 
                     <button onClick={() => submit()} >Submit</button>

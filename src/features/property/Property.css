@@ -42,6 +42,7 @@
 .propdelbut1{
     display: block;
     background-color: rgb(255, 173, 173);
+    width: 150px;
 }
 .propdelbut1:hover{
     background-color: rgb(255, 121, 121);
@@ -50,9 +51,13 @@
 .propdelbut2{
     background-color: rgb(255, 173, 173);
     display: none;
+    width: 150px;
+    
 }
 .propdelbut2:hover{
     background-color: rgb(255, 121, 121);
     cursor: pointer;
 }
+
+
 

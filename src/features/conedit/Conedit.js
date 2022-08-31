@@ -113,7 +113,7 @@ const Conedit = (props) => {
                 <div id='conid'></div>
                 <div className='conmodaleditcontent'>
                     <button onClick={() => hideModal()}>x</button>
-
+                    <h4>Edit Connection</h4>
                     <div className='conselbox'>
 
                         {/* {console.log(document.getElementById("confirst"))} */}
@@ -178,6 +178,7 @@ const Conedit = (props) => {
                                 </div>)}
                         </datalist>
                     </div>
+                    <br></br>
                     <div className='conselbox'>
                         <textarea id="condesc" className='condesc' placeholder='short Description' onChange={(e) => setDescEd(e.target.value)}></textarea>
                     </div>

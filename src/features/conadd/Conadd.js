@@ -78,7 +78,7 @@ const Conadd = () => {
                 <div className='conmodalcontentadd'>
                 <button onClick={()=>hideModal()}>x</button>
                     <div className='conselboxadd'>
-
+                        <h4>Add Connection</h4>
                         {/* {first} */}
                         <input list="firstlistadd" id="confirstadd" placeholder='first Property' onChange={
                             (e) => properties.filter(prop => prop.name == e.target.value).length > 0 ?
@@ -137,10 +137,11 @@ const Conadd = () => {
                                 </div>)}
                         </datalist>
                     </div>
+                    <br></br>
                     <div className='conselboxadd'>
                         <textarea id="condescadd" className='condescadd' placeholder='short Description' onChange={(e) => setDesc(e.target.value)}></textarea>
                     </div>
-                    <br></br>
+                    {/* <br></br> */}
                     <div className='conselboxminiadd'>
 
                         {/* {type} */}

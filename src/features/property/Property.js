@@ -33,7 +33,7 @@ const Property = () => {
           <div>
         {/* {propId} */}
         {is_superuser ? <div>
-
+        <Propedit name={prop.name} page_Content={prop.page_Content} ></Propedit>
           <button id='propdelbut1' className='propdelbut1' onClick={() => revealdelete()}>
               Delete
           </button>
@@ -43,7 +43,7 @@ const Property = () => {
             </a>
           </button>
 
-          <Propedit name={prop.name} page_Content={prop.page_Content} ></Propedit>
+          
         </div>
 
 

@@ -21,7 +21,7 @@ const Login = () => {
             <input className='logininput' placeholder='password' type="password" onChange={(e)=>(setPassword(e.target.value))}/>
          
             <button className='loginbutton' onClick={()=>dispatch(signInAsync([username,password]))}>Login</button>
-            <button className='loginbutton'>Sign Up</button>
+            {/* <button className='loginbutton'>Sign Up</button> */}
         </div>  
     </div>
   )

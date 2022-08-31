@@ -53,13 +53,12 @@ const Propadd = () => {
       <div className='propmodal' id="propmodal">
         <div className='propmodalcontent'>
           <button onClick={()=>hideModal()}>x</button>
-          <label>name:</label>
+          <h4>Add World</h4>
+          {/* <label>name:</label> */}
+          <input placeholder='Name' id='propname' onChange={(e) => setName(e.target.value)}></input>
           <br></br>
-          <input id='propname' onChange={(e) => setName(e.target.value)}></input>
-          <br></br>
-          <label>page content:</label>
-          <br></br>
-          <textarea id='propcontent' className='propcontent' onChange={(e) => setContent(e.target.value)}></textarea>
+          {/* <label>page content:</label> */}
+          <textarea placeholder='page content' id='propcontent' className='propcontent' onChange={(e) => setContent(e.target.value)}></textarea>
           <br></br>
 
           <button onClick={() => submit()} >Submit</button>
