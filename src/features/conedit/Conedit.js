@@ -14,11 +14,11 @@ const Conedit = (props) => {
     const conid = props.conid
 
     const dispatch = useDispatch()
-    const [firstEd, setFirstEd] = useState("")
-    const [secondEd, setSecondEd] = useState("")
-    const [descEd, setDescEd] = useState("")
-    const [typeEd, setTypeEd] = useState("")
-    const [dirEd, setDirEd] = useState("")
+    // const [firstEd, setFirstEd] = useState("")
+    // const [secondEd, setSecondEd] = useState("")
+    // const [descEd, setDescEd] = useState("")
+    // const [typeEd, setTypeEd] = useState("")
+    // const [dirEd, setDirEd] = useState("")
     // const [conid, setConid] = useState("")
 
     // useEffect(() => {
@@ -38,19 +38,19 @@ const Conedit = (props) => {
     }
 
     const getdata = () => {
-        document.getElementById("conid").value = conid
-        document.getElementById("confirst").value = mydata.first.name
-        document.getElementById("consecond").value = mydata.second.name
-        document.getElementById("condesc").value = mydata.desc
-        document.getElementById("condir").value = mydata.dir.name
-        document.getElementById("contype").value = mydata.type.name
+        document.getElementById("conidedit").value = conid
+        document.getElementById("confirstedit").value = mydata.first.name
+        document.getElementById("consecondedit").value = mydata.second.name
+        document.getElementById("condescedit").value = mydata.desc
+        document.getElementById("condiredit").value = mydata.dir.name
+        document.getElementById("contypeedit").value = mydata.type.name
     }
     const updatedata = () => {
-        setFirstEd(mydata.first.id)
-        setSecondEd(mydata.second.id)
-        setDescEd(mydata.desc)
-        setDirEd(mydata.dir.id)
-        setTypeEd(mydata.type.id)
+        // setFirstEd(mydata.first.id)
+        // setSecondEd(mydata.second.id)
+        // setDescEd(mydata.desc)
+        // setDirEd(mydata.dir.id)
+        // setTypeEd(mydata.type.id)
         // setConid(props.conid)
         // console.log(mydata.first.id)
     }
@@ -61,25 +61,25 @@ const Conedit = (props) => {
 
 
 
-        dispatch(updConAsync([document.getElementById("conid").value, {
-            "firstProperty": properties.filter(prop => prop.name == document.getElementById("confirst").value)[0].id,
-            "secondProperty": properties.filter(prop => prop.name == document.getElementById("consecond").value)[0].id,
-            "direction": dirs.filter(d => d.name == document.getElementById("condir").value)[0].id,
-            "type": types.filter(t => t.name == document.getElementById("contype").value)[0].id,
-            "desc": document.getElementById("condesc").value
+        dispatch(updConAsync([document.getElementById("conidedit").value, {
+            "firstProperty": properties.filter(prop => prop.name == document.getElementById("confirstedit").value)[0].id,
+            "secondProperty": properties.filter(prop => prop.name == document.getElementById("consecondedit").value)[0].id,
+            "direction": dirs.filter(d => d.name == document.getElementById("condiredit").value)[0].id,
+            "type": types.filter(t => t.name == document.getElementById("contypeedit").value)[0].id,
+            "desc": document.getElementById("condescedit").value
         }, token]))
         hideModal()
 
     }
 
     const show = () => {
-        console.log(document.getElementById("conid").value)
+        console.log(document.getElementById("conidedit").value)
         console.log({
-            "firstProperty": properties.filter(prop => prop.name == document.getElementById("confirst").value)[0].id,
-            "secondProperty": properties.filter(prop => prop.name == document.getElementById("consecond").value)[0].id,
-            "direction": dirs.filter(d => d.name == document.getElementById("condir").value)[0].id,
-            "type": types.filter(t => t.name == document.getElementById("contype").value)[0].id,
-            "desc": document.getElementById("condesc").value
+            "firstProperty": properties.filter(prop => prop.name == document.getElementById("confirstedit").value)[0].id,
+            "secondProperty": properties.filter(prop => prop.name == document.getElementById("consecondedit").value)[0].id,
+            "direction": dirs.filter(d => d.name == document.getElementById("condiredit").value)[0].id,
+            "type": types.filter(t => t.name == document.getElementById("contypeedit").value)[0].id,
+            "desc": document.getElementById("condescedit").value
         })
 
     }
@@ -110,25 +110,21 @@ const Conedit = (props) => {
             {/* {console.log(props.data.first.id)} */}
             {/* {props.data.firstproperty.name} */}
             <div className="conmodaledit" id="conmodaledit">
-                <div id='conid'></div>
+                <div id='conidedit'></div>
                 <div className='conmodaleditcontent'>
                     <button onClick={() => hideModal()}>x</button>
                     <h4>Edit Connection</h4>
-                    <div className='conselbox'>
+                    <div className='conselboxedit'>
 
                         {/* {console.log(document.getElementById("confirst"))} */}
                         {/* {document.getElementById("confirst")? console.log(document.getElementById("confirst").value) :console.log("hi")} */}
                         {/* {document.getElementById("confirst").length ?
                          setFirst(properties.filter(prop => prop.name == document.getElementById("confirst").value)):setFirst("")} */}
 
-                        <input list="firstlist" id="confirst" placeholder='first Property' onChange={
-                            (e) => properties.filter(prop => prop.name == e.target.value).length > 0 ?
-                                setFirstEd(properties.filter(prop => prop.name == e.target.value)[0].id)
-                                :
-                                setFirstEd("")} ></input>
+                        <input list="firstlistedit" id="confirstedit" placeholder='first Property'  ></input>
 
 
-                        <datalist id="firstlist">
+                        <datalist id="firstlistedit">
                             {properties.map((prop, i) =>
                                 <div key={i}>
                                     <option value={prop.name} ></option>
@@ -139,21 +135,17 @@ const Conedit = (props) => {
                     <div className='conselboxmini'>
 
                         {/* {dir} */}
-                        <input list="dirlist" id="condir" placeholder='Direction' onClick={
+                        <input list="dirlistedit" id="condiredit" placeholder='Direction' onClick={
                             (e) => {
-                                document.getElementById("condir").value = "";
-                                setDirEd("")
+                                document.getElementById("condiredit").value = "";
+                                
 
                             }
                         }
-                            onChange={
-                                (e) => dirs.filter(d => d.name == e.target.value).length > 0 ?
-                                    setDirEd(dirs.filter(d => d.name == e.target.value)[0].id)
-                                    :
-                                    setDirEd("")} />
+                            />
 
 
-                        <datalist id="dirlist">
+                        <datalist id="dirlistedit">
                             {dirs.map((d, i) =>
                                 <div key={i}>
                                     <option value={d.name} ></option>
@@ -164,14 +156,10 @@ const Conedit = (props) => {
                     <div className='conselbox'>
 
                         {/* {second} */}
-                        <input list="secondlist" id="consecond" placeholder='Second Property' onChange={
-                            (e) => properties.filter(prop => prop.name == e.target.value).length > 0 ?
-                                setSecondEd(properties.filter(prop => prop.name == e.target.value)[0].id)
-                                :
-                                setSecondEd("")} />
+                        <input list="secondlistedit" id="consecondedit" placeholder='Second Property'  />
 
 
-                        <datalist id="secondlist">
+                        <datalist id="secondlistedit">
                             {properties.map((prop, i) =>
                                 <div key={i}>
                                     <option value={prop.name} ></option>
@@ -180,37 +168,33 @@ const Conedit = (props) => {
                     </div>
                     <br></br>
                     <div className='conselbox'>
-                        <textarea id="condesc" className='condesc' placeholder='short Description' onChange={(e) => setDescEd(e.target.value)}></textarea>
+                        <textarea id="condescedit" className='condescedit' placeholder='short Description' ></textarea>
                     </div>
                     <br></br>
                     <div className='conselboxmini'>
 
                         {/* {type} */}
-                        <input list="Typelist" id="contype" placeholder='Type' onClick={
+                        <input list="Typelistedit" id="contypeedit" placeholder='Type' onClick={
                             (e) => {
-                                document.getElementById("contype").value = "";
-                                setTypeEd("")
+                                document.getElementById("contypeedit").value = "";
+                                
 
                             }
                         }
-                            onChange={
-                                (e) => types.filter(t => t.name == e.target.value).length > 0 ?
-                                    setTypeEd(types.filter(t => t.name == e.target.value)[0].id)
-                                    :
-                                    setTypeEd("")} />
+                            />
 
 
-                        <datalist id="Typelist">
+                        <datalist id="Typelistedit">
                             {types.map((t, i) =>
                                 <div key={i}>
                                     <option value={t.name} ></option>
                                 </div>)}
                         </datalist>
                     </div>
-                    <div className='conselbox'>
+                    <div className='conselboxedit'>
                         <button onClick={() => submit()} >Submit</button>
                     </div>
-                    <div className='conselbox'>
+                    <div className='conselboxedit'>
                         <button onClick={() => show()} >show</button>
                     </div>
                 </div>

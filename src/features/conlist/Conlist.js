@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Conedit from '../conedit/Conedit'
 import { delConAsync, selectCons } from '../cons/consSlice'
 import { selectTypes } from '../contypes/contypesSlice'
@@ -10,6 +10,9 @@ import { selectProps } from '../properties/propertiesSlice'
 import './Conlist.css'
 
 const Conlist = (props) => {
+
+  const params = useParams()
+  const propId = Number(params.propId)
   const cons = props.cons
   const properties = useSelector(selectProps)
   const dirs = useSelector(selectDirs)
@@ -40,20 +43,32 @@ const Conlist = (props) => {
             <div className='conlistrow' key={i}>
               {/* {con.id} */}
               <div className='conslot conslotp'>
-                <Link className='conlink' to={`/prop/${con.firstProperty}`}>
+
+
+                {propId === con.firstProperty ?
+                 properties.filter(prop => prop.id === con.firstProperty)[0].name
+                 :
+                 <Link className='conlink' to={`/prop/${con.firstProperty}`}>
                   {properties.filter(prop => prop.id === con.firstProperty)[0].name}
                 </Link>
-
+                 }
+             
               </div>
               {dirs.length ? <div className='conslot conslotmini tooltip'>
                 {dirs.filter(dir=>dir.id ===con.direction)[0].name}
-                <span class="tooltiptext">{dirs.filter(dir=>dir.id ===con.direction)[0].desc}</span>
+                <span className="tooltiptext">{dirs.filter(dir=>dir.id ===con.direction)[0].desc}</span>
               </div> : null}
               
               <div className='conslot conslotp'>
-                <Link className='conlink' to={`/prop/${con.secondProperty}`}>
+
+
+                {propId === con.secondProperty ?
+                 properties.filter(prop => prop.id === con.secondProperty)[0].name
+                 :
+                 <Link className='conlink' to={`/prop/${con.secondProperty}`}>
                   {properties.filter(prop => prop.id === con.secondProperty)[0].name}
                 </Link>
+                 }
               </div>
               <div className='conslot conslotd'>
                 {con.desc}
@@ -62,7 +77,7 @@ const Conlist = (props) => {
               <div className='conslot conslotmini tooltip'>
                 {types.filter(type=>type.id === con.type)[0].name}
               
-                <span class="tooltiptext">{types.filter(type=>type.id === con.type)[0].desc}</span>
+                <span className="tooltiptext">{types.filter(type=>type.id === con.type)[0].desc}</span>
               </div>: null}
               
 

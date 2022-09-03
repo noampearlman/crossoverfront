@@ -46,7 +46,7 @@ export const updConAsync = createAsyncThunk(
     'cons/updCon',
     async (data) => {
         
-        console.log(data)
+        
         const response = await updCon(data);
         
         

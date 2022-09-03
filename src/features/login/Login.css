@@ -2,8 +2,8 @@
     float: right;
     /* background-color: blue; */
     min-width: fit-content;
-    padding:5px;
-    padding-bottom: 10px;
+    /* padding:5px; */
+    /* padding-bottom: 10px; */
     border-radius: 5px;
     height: 100%;
 }

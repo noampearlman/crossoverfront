@@ -23,7 +23,7 @@
     float: left;
 }
 
-.navbutton {
+.but {
     background-color: transparent;
     height: 40px;
     width: 100px;
@@ -31,17 +31,18 @@
     /* margin-top: 2px; */
     border-radius: 5px;
     border: 0;
-    float: left;
+    color:white;
+    /* float: left; */
     font-size: large;   
 }
 
-.navbutton:hover {
+.but:hover {
     /* background-color: rgb(38, 139, 190); */
     /* background: linear-gradient(180deg, rgb(122, 145, 199) 6%, rgb(109, 131, 178) 34%, rgb(38, 66, 131) 100%); */
     background: linear-gradient(180deg, rgb(101, 101, 101) 0%, rgb(84, 84, 84) 4%, rgb(52, 52, 52) 90%);
 }
 
-.navbuttoncolor {
+.butcolor {
     
     text-decoration: none;
     color: rgb(255, 255, 255);

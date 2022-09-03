@@ -35,8 +35,8 @@ root.render(
             <Route path="" element={<Homeexplain/>} />
             <Route path="con/" element={<Connector/>} />
             <Route path="prs/" element={<Propsearch/>} />
-            <Route path="addcon/" element={"addcon"} />
-            <Route path="addprop/" element={"addprop"} />
+            {/* <Route path="addcon/" element={"addcon"} /> */}
+            {/* <Route path="addprop/" element={"addprop"} /> */}
             <Route path="prop/" element={<Propspage/>} >
               <Route path="" element={<Propexplain/>} />
               <Route path=":propId" element={<Property />} />

@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom'
 import { selectLogged } from '../login/loginSlice'
 import Login from '../login/Login'
 import Logout from '../logout/Logout';
-import './Navbar.css'
+import style from './Navbar.module.css'
 const Navbar = () => {
   const logged = useSelector(selectLogged)
   return (
-    <div className="sticky">
-        <nav className='buttonbar'>
-          <button className='navbutton'><Link to="/" className='navbuttoncolor'>Home</Link></button>
+    <div className={style.sticky}>
+        <nav className={style.buttonbar}>
+          <button className={style.but}><Link to="/" className={style.butcolor}>Home</Link></button>
           
-          <button className='navbutton'><Link to="/con" className='navbuttoncolor'>Connector</Link></button>
-          <button className='navbutton'><Link to="/prop" className='navbuttoncolor'>Worlds</Link></button>
+          <button className={style.but}><Link to="/con" className={style.butcolor}>Connector</Link></button>
+          <button className={style.but}><Link to="/prop" className={style.butcolor}>Worlds</Link></button>
         
         </nav>
           <span>{logged ? <Logout/> : <Login/> }</span>

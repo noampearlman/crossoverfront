@@ -5,6 +5,7 @@ import { useDispatch}from 'react-redux'
 // import { signin } from './loginAPI'
 import {  autologin, signInAsync } from './loginSlice'
 import './Login.css'
+import style from '../navbar/Navbar.module.css'
 const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -20,7 +21,7 @@ const Login = () => {
         
             <input className='logininput' placeholder='password' type="password" onChange={(e)=>(setPassword(e.target.value))}/>
          
-            <button className='loginbutton' onClick={()=>dispatch(signInAsync([username,password]))}>Login</button>
+            <button className={style.but} onClick={()=>dispatch(signInAsync([username,password]))}>Login</button>
             {/* <button className='loginbutton'>Sign Up</button> */}
         </div>  
     </div>

@@ -45,7 +45,7 @@ export const updPropAsync = createAsyncThunk(
   'properties/updProp',
   async (data) => {
 
-    console.log(data)
+  
     const response = await updProp(data);
 
 
